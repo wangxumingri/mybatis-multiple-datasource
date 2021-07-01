@@ -1,0 +1,26 @@
+POST http://localhost:10000/mybatis/xml/coupon/template/add
+Content-Type: application/json
+
+{
+  "couponName":"测试票券5",
+  "receieveStart":"2020-01-02 00:00:00",
+  "receieveEnd":"2020-02-02 23:59:59"
+}
+
+###
+
+GET http://localhost:10000/mybatis/xml/coupon/template/list
+Content-Type: application/json
+
+
+###
+
+GET http://localhost:10000/mybatis/xml/copmpare
+Content-Type: application/json
+
+["coupon_template"]
+
+
+
+
+

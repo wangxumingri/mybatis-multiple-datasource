@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mgt.MgtColumnMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Column">
+    <!--@mbg.generated-->
+    <!--@Table Column-->
+    <result column="TABLE_SCHEMA" jdbcType="VARCHAR" property="tableSchema" />
+    <result column="TABLE_NAME" jdbcType="VARCHAR" property="tableName" />
+    <result column="COLUMN_NAME" jdbcType="VARCHAR" property="columnName" />
+    <result column="DATA_TYPE" jdbcType="VARCHAR" property="dataType" />
+    <result column="COLUMN_KEY" jdbcType="VARCHAR" property="columnKey" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, DATA_TYPE,COLUMN_KEY
+  </sql>
+
+  <select id="retrieveColumnList"  resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from information_schema.COLUMNS
+    where TABLE_SCHEMA = #{tableSchema}
+    and TABLE_NAME in
+    <foreach collection="param2" open="(" close=")" separator="," item="tableName">
+        #{tableName}
+    </foreach>
+  </select>
+</mapper>

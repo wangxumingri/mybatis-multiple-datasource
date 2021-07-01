@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.crm.ColumnsMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Columns">
+    <!--@mbg.generated-->
+    <!--@Table `COLUMNS`-->
+    <result column="TABLE_SCHEMA" jdbcType="VARCHAR" property="tableSchema" />
+    <result column="TABLE_NAME" jdbcType="VARCHAR" property="tableName" />
+    <result column="COLUMN_NAME" jdbcType="VARCHAR" property="columnName" />
+    <result column="DATA_TYPE" jdbcType="VARCHAR" property="dataType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    TABLE_SCHEMA, `TABLE_NAME`, `COLUMN_NAME`, DATA_TYPE
+  </sql>
+  <insert id="insert" parameterType="com.example.demo.entity.Columns">
+    <!--@mbg.generated-->
+    insert into `COLUMNS` (TABLE_SCHEMA, `TABLE_NAME`, `COLUMN_NAME`, 
+      DATA_TYPE)
+    values (#{tableSchema,jdbcType=VARCHAR}, #{tableName,jdbcType=VARCHAR}, #{columnName,jdbcType=VARCHAR}, 
+      #{dataType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Columns">
+    <!--@mbg.generated-->
+    insert into `COLUMNS`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tableSchema != null">
+        TABLE_SCHEMA,
+      </if>
+      <if test="tableName != null">
+        `TABLE_NAME`,
+      </if>
+      <if test="columnName != null">
+        `COLUMN_NAME`,
+      </if>
+      <if test="dataType != null">
+        DATA_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tableSchema != null">
+        #{tableSchema,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="columnName != null">
+        #{columnName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        #{dataType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
